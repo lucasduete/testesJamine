@@ -8,24 +8,18 @@ function calcularConta(litros, tipo) {
 
 	if (litros <= 0) return "Litros Inválido";
 
+	var desconto = 0;
+
 	switch (tipo) {
 		case GASOLINA:
-			if (litros <= 20) {
-				var desconto = 0.03 * litros;
-				return ((litros * LITRO_GASOLINA) * (1 - desconto));
-			} else {
-				var desconto = 0.05 * litros;
-				return ((litros * LITRO_GASOLINA) * (1 - desconto));
-			}
+			if (litros <= 20) desconto = 0.04
+				else desconto = 0.06;
+			return (LITRO_GASOLINA * (1 - desconto)) * litros;
 			break;
 		case ALCOOL:
-			if (litros <= 20) {
-				var desconto = 0.04 * litros;
-				return ((litros * LITRO_ALCOOL) * (1 - desconto));
-			} else {
-				var desconto = 0.06 * litros;
-				return ((litros * LITRO_ALCOOL) * (1 - desconto));
-			}
+			if (litros <= 20) desconto = 0.03
+				else desconto = 0.05;
+			return (LITRO_ALCOOL * (1 - desconto)) * litros;
 			break;
 		default:
 			return "Tipo Inválido";
@@ -33,4 +27,4 @@ function calcularConta(litros, tipo) {
 	};
 
 
-};
+};	
